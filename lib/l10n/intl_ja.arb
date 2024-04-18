@@ -1,0 +1,23 @@
+{
+    "appName": "Flutter Core",
+    "ok": "OK",
+    "back": "戻る",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "goOn": "続ける",
+    "close": "閉じる",
+    "networkErrorSomethingWentWrong": "不具合が生じました",
+    "networkErrorNoInternetConnection": "インターネットの接続状況を確認してください",
+    "networkErrorNoAuthentication": "認証されていません",
+    "errorDefault": "不具合が生じました",
+    "internetConnectionError": "ネットワークに接続されているか確認してください",
+    "internetCertificateConnectionError": "ネットワークが不安定です",
+    "internalServerError": "サーバの不具合が生じています",
+    "loginError": "パスワードが違います。もう一度入力してください。",
+    "search": "検索",
+    "confirm": "承認",
+    "delete": "削除",
+    "yes": "はい",
+    "no": "いいえ",
+    "userCredentialsIncorrect": "ユーザーの資格情報が間違っていました。"
+}

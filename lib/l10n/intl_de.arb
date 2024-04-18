@@ -1,0 +1,23 @@
+{
+    "appName": "Flutter Core",
+    "ok": "OK",
+    "back": "Zurück",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "goOn": "Weiter",
+    "close": "Schließen",
+    "networkErrorSomethingWentWrong": "Etwas ist schiefgelaufen, bitte versuchen Sie es später erneut.",
+    "networkErrorNoInternetConnection": "Überprüfen Sie Ihre Internetverbindung.",
+    "networkErrorNoAuthentication": "Sie sind nicht authentifiziert.",
+    "errorDefault": "Etwas ist schiefgelaufen.",
+    "internetConnectionError": "Überprüfen Sie, ob Sie eine funktionierende Netzwerkverbindung haben.",
+    "internetCertificateConnectionError": "Sie sind mit einem unsicheren Netzwerk verbunden.",
+    "internalServerError": "Mit dem Server stimmt etwas nicht. Bitte versuchen Sie es später erneut.",
+    "loginError": "Etwas ist bei der Authentifizierung der App schiefgelaufen, bitte versuchen Sie es später erneut.",
+    "search": "Suchen",
+    "confirm": "Bestätigen",
+    "delete": "Löschen",
+    "yes": "Ja",
+    "no": "Nein",
+    "userCredentialsIncorrect": "Die Benutzerdaten waren falsch."
+}

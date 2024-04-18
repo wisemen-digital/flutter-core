@@ -1,0 +1,46 @@
+name: wisecore
+description: A flutter core project used by Wisemen. Comes with a bunch of generally useful extensions and functions.
+version: 1.0.4
+homepage: https://github.com/wisemen-digital/flutter-core
+repository: https://github.com/wisemen-digital/flutter-core
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.3.2
+  flutter_localizations:
+    sdk: flutter
+  url_launcher: ^6.1.10
+  sentry_flutter: ^7.10.1
+  onesignal_flutter: ^5.0.3
+  flutter_secure_storage: ^9.0.0
+  logger: ^2.0.2+1
+  json_annotation: ^4.8.1
+  riverpod_annotation: ^2.0.2
+  shared_preferences: ^2.0.18
+  isar: ^3.1.0
+  hooks_riverpod: ^2.4.3
+  auto_route: ^8.0.3
+  intl: ^0.18.1
+  maps_launcher: ^2.2.0
+
+dev_dependencies:
+  flutter_lints: ^3.0.2
+  build_runner: ^2.4.6
+  hive_generator: ^2.0.0
+  custom_lint: ^0.6.4
+  riverpod_generator: ^2.3.3
+  flutter_native_splash: ^2.2.19
+  auto_route_generator: ^8.0.0
+  dependency_validator: ^3.0.0
+
+flutter:
+  uses-material-design: true
+# flutter_intl:
+#   enabled: true # Required. Must be set to true to activate the plugin. Default: false
+#   class_name: SCoreT # Optional. Sets the name for the generated localization class. Default: S
+#   main_locale: en # Optional. Sets the main locale used for generating localization files. Provided value should comply with ISO-639-1 and ISO-3166-1 (e.g. "en", "en_GB"). Default: en
+
