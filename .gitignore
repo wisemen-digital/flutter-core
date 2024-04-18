@@ -35,6 +35,7 @@ doc/api/
 ### Dart Patch ###
 # dotenv environment variables file
 .env
+*.log
 
 # End of https://www.toptal.com/developers/gitignore/api/dart
 
