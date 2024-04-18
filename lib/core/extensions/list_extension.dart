@@ -1,6 +1,7 @@
 extension CustomListExtensions<T, I> on List<T>? {
   //add or update an item in the list
-  List<T> addOrUpdateItem({required T item, required bool Function(T element) predicate}) {
+  List<T> addOrUpdateItem(
+      {required T item, required bool Function(T element) predicate}) {
     //if the list is not null
     if (this != null) {
       //check if the item already exist so it needs to be updated

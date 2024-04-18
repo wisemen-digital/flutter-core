@@ -125,7 +125,11 @@ class PlatformApp extends PlatformWidget<Widget, Widget> {
                 location: BannerLocation.topStart,
                 message: flavorName!,
                 color: const Color(0xFF7D1B1A),
-                textStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 11.0, letterSpacing: 1.0, color: Colors.white),
+                textStyle: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 11.0,
+                    letterSpacing: 1.0,
+                    color: Colors.white),
                 textDirection: TextDirection.ltr,
                 child: child,
               ),

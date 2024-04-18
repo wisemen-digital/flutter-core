@@ -19,7 +19,8 @@ class ErrorDialogShower {
   String ok;
   Function? onConfirm;
 
-  Future<void> showErrorDialog(BuildContext context, AsyncValue asyncValue) async {
+  Future<void> showErrorDialog(
+      BuildContext context, AsyncValue asyncValue) async {
     if (asyncValue.hasError && !asyncValue.isLoading) {
       String message = networkErrorString;
 
@@ -30,7 +31,9 @@ class ErrorDialogShower {
       } else {
         message = kDebugMode ? asyncValue.error.toString() : networkErrorString;
       }
-      Logger().e(asyncValue.error.toString(), error: asyncValue.error.toString(), stackTrace: asyncValue.stackTrace);
+      Logger().e(asyncValue.error.toString(),
+          error: asyncValue.error.toString(),
+          stackTrace: asyncValue.stackTrace);
 
       await showDialog<bool>(
           context: context,
@@ -75,7 +78,8 @@ extension AsyncValueExtensions on AsyncValue {
       } else {
         message = kDebugMode ? error.toString() : networkErrorString;
       }
-      Logger().e(error.toString(), error: error.toString(), stackTrace: stackTrace);
+      Logger()
+          .e(error.toString(), error: error.toString(), stackTrace: stackTrace);
 
       await showDialog<bool>(
         context: context,

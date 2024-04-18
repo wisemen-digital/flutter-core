@@ -15,14 +15,18 @@ class PaginationObject<T> {
     required this.meta,
   });
 
-  factory PaginationObject.fromJson(Map<String, dynamic> json) => PaginationObject<T>(
-        data: (json['data'] as List<dynamic>).map(_Converter<T>().fromJson).toList(),
+  factory PaginationObject.fromJson(Map<String, dynamic> json) =>
+      PaginationObject<T>(
+        data: (json['data'] as List<dynamic>)
+            .map(_Converter<T>().fromJson)
+            .toList(),
         links: Links.fromJson(json['links'] as Map<String, dynamic>),
         meta: Meta.fromJson(json['meta'] as Map<String, dynamic>),
       );
 
   @override
-  String toString() => 'PaginationObject(data: $data, links: $links, meta: $meta)';
+  String toString() =>
+      'PaginationObject(data: $data, links: $links, meta: $meta)';
 }
 
 interface class _Converter<T> implements JsonConverter<T, Object?> {
