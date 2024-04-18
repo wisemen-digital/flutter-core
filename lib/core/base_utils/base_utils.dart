@@ -10,12 +10,19 @@ import 'package:maps_launcher/maps_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
-Future<void> launchUrl({required String url, bool isPlatformDefault = true, required BuildContext context, required String title}) async {
+Future<void> launchUrl(
+    {required String url,
+    bool isPlatformDefault = true,
+    required BuildContext context,
+    required String title}) async {
   Uri? uri = Uri.tryParse(url);
   if (uri != null) {
     await url_launcher.canLaunchUrl(uri).then((canLaunch) {
       if (canLaunch) {
-        url_launcher.launchUrl(uri, mode: isPlatformDefault ? url_launcher.LaunchMode.platformDefault : url_launcher.LaunchMode.externalApplication);
+        url_launcher.launchUrl(uri,
+            mode: isPlatformDefault
+                ? url_launcher.LaunchMode.platformDefault
+                : url_launcher.LaunchMode.externalApplication);
       } else {
         showLaunchErrorDialog(context: context, title: title, url: url);
       }
@@ -25,15 +32,23 @@ Future<void> launchUrl({required String url, bool isPlatformDefault = true, requ
   }
 }
 
-Future<void> showLaunchErrorDialog({required BuildContext context, required String title, required String url}) async {
+Future<void> showLaunchErrorDialog(
+    {required BuildContext context,
+    required String title,
+    required String url}) async {
   if (kDebugMode) {
     debugPrint("Could not launch: $url");
   }
 
   if (Platform.isIOS) {
-    await showAlertDialog(title: title, message: SCore.of(context).networkErrorSomethingWentWrong, context: context);
+    await showAlertDialog(
+        title: title,
+        message: SCore.of(context).networkErrorSomethingWentWrong,
+        context: context);
   } else {
-    showSnackBar(message: SCore.of(context).networkErrorSomethingWentWrong, context: context);
+    showSnackBar(
+        message: SCore.of(context).networkErrorSomethingWentWrong,
+        context: context);
   }
 }
 
@@ -61,8 +76,12 @@ Future<void> launchPhone({required String phoneNr}) async {
   url_launcher.launchUrl(phoneLaunchUri);
 }
 
-Future<bool> launchMapWithCoordinates({required String latitude, required String longitude, required String name}) async {
-  return await MapsLauncher.launchCoordinates(double.parse(latitude), double.parse(longitude), name);
+Future<bool> launchMapWithCoordinates(
+    {required String latitude,
+    required String longitude,
+    required String name}) async {
+  return await MapsLauncher.launchCoordinates(
+      double.parse(latitude), double.parse(longitude), name);
 }
 
 Future<void> launchMap({required String name}) async {
@@ -106,11 +125,15 @@ class CustomLockScrollPhysics extends ScrollPhysics {
   /// Creates physics for a [PageView].
   /// [lockLeft] Lock scroll to the left
   /// [lockRight] Lock scroll to the right
-  CustomLockScrollPhysics({super.parent, this.lockLeft = false, this.lockRight = false});
+  CustomLockScrollPhysics(
+      {super.parent, this.lockLeft = false, this.lockRight = false});
 
   @override
   CustomLockScrollPhysics applyTo(ancestor) {
-    return CustomLockScrollPhysics(parent: buildParent(ancestor), lockLeft: lockLeft, lockRight: lockRight);
+    return CustomLockScrollPhysics(
+        parent: buildParent(ancestor),
+        lockLeft: lockLeft,
+        lockRight: lockRight);
   }
 
   @override
@@ -127,7 +150,8 @@ class CustomLockScrollPhysics extends ScrollPhysics {
   double applyBoundaryConditions(ScrollMetrics position, double value) {
     assert(() {
       if (value == position.pixels) {
-        throw FlutterError('$runtimeType.applyBoundaryConditions() was called redundantly.\n'
+        throw FlutterError(
+            '$runtimeType.applyBoundaryConditions() was called redundantly.\n'
             'The proposed new position, $value, is exactly equal to the current position of the '
             'given ${position.runtimeType}, ${position.pixels}.\n'
             'The applyBoundaryConditions method should only be called when the value is '
@@ -145,19 +169,23 @@ class CustomLockScrollPhysics extends ScrollPhysics {
      * (identical to ClampingScrollPhysics)
      */
     // under-scroll
-    if (value < position.pixels && position.pixels <= position.minScrollExtent) {
+    if (value < position.pixels &&
+        position.pixels <= position.minScrollExtent) {
       return value - position.pixels;
     }
     // over-scroll
-    else if (position.maxScrollExtent <= position.pixels && position.pixels < value) {
+    else if (position.maxScrollExtent <= position.pixels &&
+        position.pixels < value) {
       return value - position.pixels;
     }
     // hit top edge
-    else if (value < position.minScrollExtent && position.minScrollExtent < position.pixels) {
+    else if (value < position.minScrollExtent &&
+        position.minScrollExtent < position.pixels) {
       return value - position.pixels;
     }
     // hit bottom edge
-    else if (position.pixels < position.maxScrollExtent && position.maxScrollExtent < value) {
+    else if (position.pixels < position.maxScrollExtent &&
+        position.maxScrollExtent < value) {
       return value - position.pixels;
     }
 
@@ -221,7 +249,11 @@ void showSnackBar({required BuildContext context, required String? message}) {
   );
 }
 
-Future<void> showAlertDialog({required String? title, required String? message, Function()? onPressed, required BuildContext context}) async {
+Future<void> showAlertDialog(
+    {required String? title,
+    required String? message,
+    Function()? onPressed,
+    required BuildContext context}) async {
   await showDialog(
     context: context,
     builder: (_) => CupertinoAlertDialog(
