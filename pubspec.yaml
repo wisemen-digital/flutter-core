@@ -5,7 +5,7 @@ homepage: https://github.com/wisemen-digital/flutter-core
 repository: https://github.com/wisemen-digital/flutter-core
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
+  sdk: ">=3.3.4 <4.0.0"
 
 dependencies:
   flutter:
@@ -14,7 +14,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   url_launcher: ^6.1.10
-  sentry_flutter: ^7.10.1
+  sentry_flutter: ^8.0.0
   onesignal_flutter: ^5.0.3
   flutter_secure_storage: ^9.0.0
   logger: ^2.0.2+1
@@ -24,7 +24,6 @@ dependencies:
   isar: ^3.1.0
   hooks_riverpod: ^2.4.3
   auto_route: ^8.0.3
-  intl: ^0.18.1
   maps_launcher: ^2.2.0
 
 dev_dependencies:
