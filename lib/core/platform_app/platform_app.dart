@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:wisecore/core/router/app_router.dart';
 import 'package:wisecore/core/router/route_observer.dart';
 import 'package:logger/logger.dart';
