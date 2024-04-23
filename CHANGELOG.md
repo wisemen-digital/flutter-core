@@ -1,3 +1,7 @@
+## 1.0.7
+
+- Updated packages
+
 ## 1.0.6
 
 - Added `.history` folder to `.gitignore`
