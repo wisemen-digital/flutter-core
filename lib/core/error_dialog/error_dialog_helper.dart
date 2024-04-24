@@ -61,22 +61,22 @@ class ErrorDialogShower {
 }
 
 extension AsyncValueExtensions on AsyncValue {
-  Future<void> showErrorDialog(
-    WidgetRef ref,
-    BuildContext context, {
-    required String networkErrorString,
-    String ok = "OK",
+  Future<void> showErrorDialog({
+    required Ref ref,
+    required BuildContext? context,
+    required String baseErrorString,
+    String confirmTitle = "OK",
     Function? onConfirm,
   }) async {
-    if (hasError && !isLoading) {
-      String message = networkErrorString;
+    if (hasError && !isLoading && context != null) {
+      String message = baseErrorString;
 
       if (error is Exception) {
         Exception exception = error as Exception;
         //* Remove "Exception:" text from string
         message = exception.toString().replaceAll("Exception: ", "");
       } else {
-        message = kDebugMode ? error.toString() : networkErrorString;
+        message = kDebugMode ? error.toString() : baseErrorString;
       }
       Logger()
           .e(error.toString(), error: error.toString(), stackTrace: stackTrace);
@@ -90,7 +90,7 @@ extension AsyncValueExtensions on AsyncValue {
             actions: [
               CupertinoDialogAction(
                 isDefaultAction: true,
-                child: Text(ok),
+                child: Text(confirmTitle),
                 onPressed: () async {
                   if (onConfirm != null) {
                     await onConfirm();

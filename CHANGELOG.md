@@ -1,3 +1,7 @@
+## 1.0.8
+
+- Improved `showErrorDialog` on `AsyncValue`
+
 ## 1.0.7
 
 - Updated packages
