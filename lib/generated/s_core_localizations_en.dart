@@ -2,7 +2,7 @@ import 's_core_localizations.dart';
 
 /// The translations for English (`en`).
 class SCoreTEn extends SCoreT {
-  SCoreTEn([String locale = 'en']) : super(locale);
+  SCoreTEn([super.locale = 'en']);
 
   @override
   String get appName => 'Flutter Core';

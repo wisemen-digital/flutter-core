@@ -2,7 +2,7 @@ import 's_core_localizations.dart';
 
 /// The translations for Romanian Moldavian Moldovan (`ro`).
 class SCoreTRo extends SCoreT {
-  SCoreTRo([String locale = 'ro']) : super(locale);
+  SCoreTRo([super.locale = 'ro']);
 
   @override
   String get appName => 'Flutter Core';

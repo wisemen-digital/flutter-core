@@ -2,7 +2,7 @@ import 's_core_localizations.dart';
 
 /// The translations for French (`fr`).
 class SCoreTFr extends SCoreT {
-  SCoreTFr([String locale = 'fr']) : super(locale);
+  SCoreTFr([super.locale = 'fr']);
 
   @override
   String get appName => 'Flutter Core';

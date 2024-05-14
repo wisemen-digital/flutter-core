@@ -2,7 +2,7 @@ import 's_core_localizations.dart';
 
 /// The translations for Spanish Castilian (`es`).
 class SCoreTEs extends SCoreT {
-  SCoreTEs([String locale = 'es']) : super(locale);
+  SCoreTEs([super.locale = 'es']);
 
   @override
   String get appName => 'Flutter Core';

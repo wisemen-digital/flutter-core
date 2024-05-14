@@ -2,7 +2,7 @@ import 's_core_localizations.dart';
 
 /// The translations for German (`de`).
 class SCoreTDe extends SCoreT {
-  SCoreTDe([String locale = 'de']) : super(locale);
+  SCoreTDe([super.locale = 'de']);
 
   @override
   String get appName => 'Flutter Core';

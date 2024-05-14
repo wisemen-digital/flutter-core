@@ -2,7 +2,7 @@ import 's_core_localizations.dart';
 
 /// The translations for Dutch Flemish (`nl`).
 class SCoreTNl extends SCoreT {
-  SCoreTNl([String locale = 'nl']) : super(locale);
+  SCoreTNl([super.locale = 'nl']);
 
   @override
   String get appName => 'Flutter Core';
