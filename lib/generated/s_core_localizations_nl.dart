@@ -2,7 +2,7 @@ import 's_core_localizations.dart';
 
 /// The translations for Dutch Flemish (`nl`).
 class SCoreTNl extends SCoreT {
-  SCoreTNl([String locale = 'nl']) : super(locale);
+  SCoreTNl([super.locale = 'nl']);
 
   @override
   String get appName => 'Flutter Core';
@@ -26,10 +26,12 @@ class SCoreTNl extends SCoreT {
   String get close => 'Sluiten';
 
   @override
-  String get networkErrorSomethingWentWrong => 'Er is iets misgegaan, probeer het later opnieuw.';
+  String get networkErrorSomethingWentWrong =>
+      'Er is iets misgegaan, probeer het later opnieuw.';
 
   @override
-  String get networkErrorNoInternetConnection => 'Controleer uw internetverbinding.';
+  String get networkErrorNoInternetConnection =>
+      'Controleer uw internetverbinding.';
 
   @override
   String get networkErrorNoAuthentication => 'U bent niet geauthenticeerd.';
@@ -38,16 +40,20 @@ class SCoreTNl extends SCoreT {
   String get errorDefault => 'Er is iets misgegaan.';
 
   @override
-  String get internetConnectionError => 'Controleer of u een werkende netwerkverbinding heeft.';
+  String get internetConnectionError =>
+      'Controleer of u een werkende netwerkverbinding heeft.';
 
   @override
-  String get internetCertificateConnectionError => 'U bent verbonden met een onveilig netwerk.';
+  String get internetCertificateConnectionError =>
+      'U bent verbonden met een onveilig netwerk.';
 
   @override
-  String get internalServerError => 'Er is iets mis met de server. Probeer het later opnieuw.';
+  String get internalServerError =>
+      'Er is iets mis met de server. Probeer het later opnieuw.';
 
   @override
-  String get loginError => 'Er is iets misgegaan bij het authenticeren van de app, probeer het later opnieuw.';
+  String get loginError =>
+      'Er is iets misgegaan bij het authenticeren van de app, probeer het later opnieuw.';
 
   @override
   String get search => 'Zoeken';
