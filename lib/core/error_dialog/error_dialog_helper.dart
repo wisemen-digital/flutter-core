@@ -38,7 +38,7 @@ class ErrorDialogShower {
       await showDialog<bool>(
           context: context,
           barrierDismissible: false,
-          builder: (_) {
+          builder: (context) {
             return CupertinoAlertDialog(
               title: Text(appName),
               actions: [
@@ -49,7 +49,7 @@ class ErrorDialogShower {
                     if (onConfirm != null) {
                       await onConfirm!();
                     }
-                    Navigator.of(_).pop();
+                    Navigator.of(context).pop();
                   },
                 ),
               ],
@@ -84,7 +84,7 @@ extension AsyncValueExtensions on AsyncValue {
       await showDialog<bool>(
         context: context,
         barrierDismissible: false,
-        builder: (_) {
+        builder: (context) {
           return CupertinoAlertDialog(
             title: Text(ref.read(appNameProvider)), // Text((error.toString())),
             actions: [
@@ -95,7 +95,7 @@ extension AsyncValueExtensions on AsyncValue {
                   if (onConfirm != null) {
                     await onConfirm();
                   }
-                  Navigator.of(_).pop();
+                  Navigator.of(context).pop();
                 },
               ),
             ],
