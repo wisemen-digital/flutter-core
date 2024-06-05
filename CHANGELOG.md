@@ -1,3 +1,7 @@
+## 1.0.11
+
+- Removed Secure storage, updated packages
+
 ## 1.0.10
 
 - Updated packages
