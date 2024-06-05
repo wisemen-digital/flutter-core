@@ -4,10 +4,8 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:wisecore/core/services/secure_storage_service.dart';
 import 'package:wisecore/s_core_localizations/s_core_localizations.dart';
 import 'package:maps_launcher/maps_launcher.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 Future<void> launchUrl(
@@ -197,17 +195,6 @@ class CustomLockScrollPhysics extends ScrollPhysics {
     }
 
     return 0.0;
-  }
-}
-
-Future<void> clearSecureStorageOnReinstall({Function()? extra}) async {
-  String key = 'firstRun';
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-
-  if ((prefs.getBool(key) ?? true) && isIos) {
-    await SecureStorage.deleteAll();
-    if (extra != null) extra();
-    prefs.setBool(key, false);
   }
 }
 

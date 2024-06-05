@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:wisecore/core/base_utils/base_utils.dart';
 import 'package:wisecore/core/database/database_provider.dart';
 import 'package:wisecore/core/app_name/app_name.dart';
 import 'package:wisecore/core/onesignal/onesignal.dart';
@@ -32,11 +29,6 @@ Future<ProviderContainer> initCore({
   }
 
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-
-  //! Clear secure storage (iOS only)
-  if (!kIsWeb && Platform.isIOS) {
-    await clearSecureStorageOnReinstall();
-  }
 
   debugPrint("✅ init core with $flavorName");
 
