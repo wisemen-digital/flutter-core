@@ -2,7 +2,7 @@ import 's_core_localizations.dart';
 
 /// The translations for Romanian Moldavian Moldovan (`ro`).
 class SCoreTRo extends SCoreT {
-  SCoreTRo([super.locale = 'ro']);
+  SCoreTRo([String locale = 'ro']) : super(locale);
 
   @override
   String get appName => 'Flutter Core';
@@ -26,12 +26,10 @@ class SCoreTRo extends SCoreT {
   String get close => 'Închide';
 
   @override
-  String get networkErrorSomethingWentWrong =>
-      'Ceva nu a funcționat, vă rugăm să încercați mai târziu.';
+  String get networkErrorSomethingWentWrong => 'Ceva nu a funcționat, vă rugăm să încercați mai târziu.';
 
   @override
-  String get networkErrorNoInternetConnection =>
-      'Verificați conexiunea la internet.';
+  String get networkErrorNoInternetConnection => 'Verificați conexiunea la internet.';
 
   @override
   String get networkErrorNoAuthentication => 'Nu sunteți autentificat.';
@@ -40,20 +38,16 @@ class SCoreTRo extends SCoreT {
   String get errorDefault => 'Ceva a mers greșit';
 
   @override
-  String get internetConnectionError =>
-      'Verificați dacă aveți o conexiune la rețea funcțională.';
+  String get internetConnectionError => 'Verificați dacă aveți o conexiune la rețea funcțională.';
 
   @override
-  String get internetCertificateConnectionError =>
-      'Sunteți conectat la o rețea nesigură.';
+  String get internetCertificateConnectionError => 'Sunteți conectat la o rețea nesigură.';
 
   @override
-  String get internalServerError =>
-      'Ceva este în neregulă cu serverul. Vă rugăm să încercați mai târziu.';
+  String get internalServerError => 'Ceva este în neregulă cu serverul. Vă rugăm să încercați mai târziu.';
 
   @override
-  String get loginError =>
-      'Ceva a mers greșit cu autentificarea aplicației, vă rugăm să încercați mai târziu.';
+  String get loginError => 'Ceva a mers greșit cu autentificarea aplicației, vă rugăm să încercați mai târziu.';
 
   @override
   String get search => 'Caută';
@@ -71,6 +65,5 @@ class SCoreTRo extends SCoreT {
   String get no => 'Nu';
 
   @override
-  String get userCredentialsIncorrect =>
-      'Detaliile utilizatorului erau incorecte.';
+  String get userCredentialsIncorrect => 'Detaliile utilizatorului erau incorecte.';
 }

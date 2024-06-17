@@ -1,10 +1,6 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:wisecore/core/app_name/app_name.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 
@@ -54,7 +50,10 @@ class ErrorDialogShower {
                     if (onConfirm != null) {
                       await onConfirm!();
                     }
-                    Navigator.of(context).pop();
+
+                    if (context.mounted) {
+                      Navigator.of(context).pop();
+                    }
                   },
                 ),
               ],
@@ -67,47 +66,9 @@ class ErrorDialogShower {
 
 extension AsyncValueExtensions on AsyncValue {
   Future<void> showErrorDialog({
-    required Ref ref,
+    required ErrorDialogShower dialogShower,
     required BuildContext? context,
-    required String baseErrorString,
-    String confirmTitle = "OK",
-    Function? onConfirm,
   }) async {
-    if (hasError && !isLoading && context != null) {
-      String message = baseErrorString;
-
-      if (error is Exception) {
-        Exception exception = error as Exception;
-        //* Remove "Exception:" text from string
-        message = exception.toString().replaceAll("Exception: ", "");
-      } else {
-        message = kDebugMode ? error.toString() : baseErrorString;
-      }
-      Logger()
-          .e(error.toString(), error: error.toString(), stackTrace: stackTrace);
-
-      await showDialog<bool>(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) {
-          return CupertinoAlertDialog(
-            title: Text(ref.read(appNameProvider)), // Text((error.toString())),
-            actions: [
-              CupertinoDialogAction(
-                isDefaultAction: true,
-                child: Text(confirmTitle),
-                onPressed: () async {
-                  if (onConfirm != null) {
-                    await onConfirm();
-                  }
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-            content: Text(message),
-          );
-        },
-      );
-    }
+    await dialogShower.showErrorDialog(context!, this);
   }
 }

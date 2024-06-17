@@ -1,3 +1,7 @@
+## 1.0.13
+
+- Fixed `AsyncValue` error dialog shower extension method
+
 ## 1.0.12
 
 - Added error parsing for DioException

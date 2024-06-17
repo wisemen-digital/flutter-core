@@ -2,7 +2,7 @@ import 's_core_localizations.dart';
 
 /// The translations for Japanese (`ja`).
 class SCoreTJa extends SCoreT {
-  SCoreTJa([super.locale = 'ja']);
+  SCoreTJa([String locale = 'ja']) : super(locale);
 
   @override
   String get appName => 'Flutter Core';
