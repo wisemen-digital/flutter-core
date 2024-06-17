@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -19,17 +20,21 @@ class ErrorDialogShower {
   String ok;
   Function? onConfirm;
 
-  Future<void> showErrorDialog(
-      BuildContext context, AsyncValue asyncValue) async {
+  Future<void> showErrorDialog(BuildContext context, AsyncValue asyncValue,
+      {String? customErrorMessage}) async {
     if (asyncValue.hasError && !asyncValue.isLoading) {
       String message = networkErrorString;
-
-      if (asyncValue.error is Exception) {
+      if (customErrorMessage != null) {
+        message = customErrorMessage;
+      } else if (asyncValue.error is DioException) {
+        DioException exception = asyncValue.error as DioException;
+        message = exception.message ?? networkErrorString;
+      } else if (asyncValue.error is Exception) {
         Exception exception = asyncValue.error as Exception;
         //* Remove "Exception:" text from string
         message = exception.toString().replaceAll("Exception: ", "");
       } else {
-        message = kDebugMode ? asyncValue.error.toString() : networkErrorString;
+        message = asyncValue.error?.toString() ?? networkErrorString;
       }
       Logger().e(asyncValue.error.toString(),
           error: asyncValue.error.toString(),

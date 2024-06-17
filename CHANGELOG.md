@@ -1,3 +1,8 @@
+## 1.0.12
+
+- Added error parsing for DioException
+- Added `customErrorMessage` to `showErrorDialog` 
+
 ## 1.0.11
 
 - Removed Secure storage, updated packages
