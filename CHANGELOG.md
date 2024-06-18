@@ -1,3 +1,7 @@
+## 1.0.14
+
+- Updated Sentry_flutter to 8.3.0
+
 ## 1.0.13
 
 - Fixed `AsyncValue` error dialog shower extension method
