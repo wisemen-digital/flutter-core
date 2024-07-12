@@ -1,6 +1,6 @@
 name: wisecore
 description: A flutter core project used by Wisemen. Comes with a bunch of generally useful extensions and functions.
-version: 1.0.14
+version: 2.0.0
 homepage: https://github.com/wisemen-digital/flutter-core
 repository: https://github.com/wisemen-digital/flutter-core
 
@@ -13,35 +13,26 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: ^0.19.0
 
   # Riverpod
-  riverpod_annotation: ^2.3.5
-  hooks_riverpod: ^2.5.1
-
-  # Routing
-  auto_route: ^8.1.2
-  
-  # Database
-  isar: ^3.1.0+1
+  riverpod_annotation: ">=2.0.0 <3.0.0"
+  hooks_riverpod: ">=2.0.0 <3.0.0"
 
   # Networking
-  dio: ^5.4.3+1
-
-  # Data
-  json_annotation: ^4.8.1
+  dio: ">=5.0.0 <6.0.0"
+  
+  # Database
+  isar: ">=3.0.0 <4.0.0"
 
   # Storage
-  shared_preferences: ^2.2.3
+  shared_preferences: ">=2.0.0 <3.0.0"
 
   # Logging & Debugging
-  logger: ^2.2.0
-  sentry_flutter: ^8.3.0
+  sentry_flutter: ">=8.0.0 <9.0.0"
 
   # Misc
-  onesignal_flutter: ^5.1.5
-  url_launcher: ^6.3.0
-  maps_launcher: ^2.2.1
+  onesignal_flutter: ">=5.0.0 <6.0.0"
+  url_launcher: ">=6.0.0 <7.0.0"
 
 dev_dependencies:
   # Code generation
@@ -64,8 +55,4 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-# flutter_intl:
-#   enabled: true # Required. Must be set to true to activate the plugin. Default: false
-#   class_name: SCoreT # Optional. Sets the name for the generated localization class. Default: S
-#   main_locale: en # Optional. Sets the main locale used for generating localization files. Provided value should comply with ISO-639-1 and ISO-3166-1 (e.g. "en", "en_GB"). Default: en
 

@@ -1,3 +1,10 @@
+## 2.0.0
+
+- Removed auto router and routing
+- Changed imports to support upgrades
+- Changed url_launcher implementations
+- Removed intl
+
 ## 1.0.14
 
 - Updated Sentry_flutter to 8.3.0
