@@ -1,6 +1,0 @@
-output-class: SCoreT
-template-arb-file: intl_en.arb
-preferred-supported-locales: en
-output-localization-file: s_core_localizations.dart
-synthetic-package: false # important, if you want to import the delegate in another package or app
-output-dir: lib\generated
