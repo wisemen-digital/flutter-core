@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logger/logger.dart';
 
 class ErrorDialogShower {
   ErrorDialogShower({
@@ -32,34 +31,32 @@ class ErrorDialogShower {
       } else {
         message = asyncValue.error?.toString() ?? networkErrorString;
       }
-      Logger().e(asyncValue.error.toString(),
-          error: asyncValue.error.toString(),
-          stackTrace: asyncValue.stackTrace);
 
       await showDialog<bool>(
-          context: context,
-          barrierDismissible: false,
-          builder: (context) {
-            return CupertinoAlertDialog(
-              title: Text(appName),
-              actions: [
-                CupertinoDialogAction(
-                  isDefaultAction: true,
-                  child: Text(ok),
-                  onPressed: () async {
-                    if (onConfirm != null) {
-                      await onConfirm!();
-                    }
+        context: context,
+        barrierDismissible: false,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            title: Text(appName),
+            actions: [
+              CupertinoDialogAction(
+                isDefaultAction: true,
+                child: Text(ok),
+                onPressed: () async {
+                  if (onConfirm != null) {
+                    await onConfirm!();
+                  }
 
-                    if (context.mounted) {
-                      Navigator.of(context).pop();
-                    }
-                  },
-                ),
-              ],
-              content: Text(message),
-            );
-          });
+                  if (context.mounted) {
+                    Navigator.of(context).pop();
+                  }
+                },
+              ),
+            ],
+            content: Text(message),
+          );
+        },
+      );
     }
   }
 }

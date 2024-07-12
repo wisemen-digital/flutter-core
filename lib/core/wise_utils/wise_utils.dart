@@ -4,87 +4,6 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:wisecore/s_core_localizations/s_core_localizations.dart';
-import 'package:maps_launcher/maps_launcher.dart';
-import 'package:url_launcher/url_launcher.dart' as url_launcher;
-
-Future<void> launchUrl(
-    {required String url,
-    bool isPlatformDefault = true,
-    required BuildContext context,
-    required String title}) async {
-  Uri? uri = Uri.tryParse(url);
-  if (uri != null) {
-    await url_launcher.canLaunchUrl(uri).then((canLaunch) {
-      if (canLaunch) {
-        url_launcher.launchUrl(uri,
-            mode: isPlatformDefault
-                ? url_launcher.LaunchMode.platformDefault
-                : url_launcher.LaunchMode.externalApplication);
-      } else {
-        showLaunchErrorDialog(context: context, title: title, url: url);
-      }
-    });
-  } else {
-    showLaunchErrorDialog(context: context, title: title, url: url);
-  }
-}
-
-Future<void> showLaunchErrorDialog(
-    {required BuildContext context,
-    required String title,
-    required String url}) async {
-  if (kDebugMode) {
-    debugPrint("Could not launch: $url");
-  }
-
-  if (Platform.isIOS) {
-    await showAlertDialog(
-        title: title,
-        message: SCore.of(context).networkErrorSomethingWentWrong,
-        context: context);
-  } else {
-    showSnackBar(
-        message: SCore.of(context).networkErrorSomethingWentWrong,
-        context: context);
-  }
-}
-
-Future<void> launchEmail({
-  required String email,
-  String? subject,
-  String? body,
-}) async {
-  final Uri emailLaunchUri = Uri(
-    queryParameters: {
-      'subject': subject,
-      'body': body,
-    },
-    scheme: 'mailto',
-    path: email,
-  );
-  url_launcher.launchUrl(emailLaunchUri);
-}
-
-Future<void> launchPhone({required String phoneNr}) async {
-  final Uri phoneLaunchUri = Uri(
-    scheme: 'tel',
-    path: phoneNr,
-  );
-  url_launcher.launchUrl(phoneLaunchUri);
-}
-
-Future<bool> launchMapWithCoordinates(
-    {required String latitude,
-    required String longitude,
-    required String name}) async {
-  return await MapsLauncher.launchCoordinates(
-      double.parse(latitude), double.parse(longitude), name);
-}
-
-Future<void> launchMap({required String name}) async {
-  MapsLauncher.launchQuery(name);
-}
 
 bool get isWeb => kIsWeb;
 
@@ -236,11 +155,12 @@ void showSnackBar({required BuildContext context, required String? message}) {
   );
 }
 
-Future<void> showAlertDialog(
-    {required String? title,
-    required String? message,
-    Function()? onPressed,
-    required BuildContext context}) async {
+Future<void> showAlertDialog({
+  required String? title,
+  required String? message,
+  Function()? onPressed,
+  required BuildContext context,
+}) async {
   await showDialog(
     context: context,
     builder: (_) => CupertinoAlertDialog(
@@ -252,8 +172,8 @@ Future<void> showAlertDialog(
               () {
                 Navigator.of(context).pop();
               },
-          child: Text(
-            SCore.of(context).ok,
+          child: const Text(
+            'OK',
           ),
         ),
       ],
