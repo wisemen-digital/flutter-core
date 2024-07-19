@@ -25,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Generate code
-        run: flutter gen-l10n
-
       - name: Fix analysis issues
         run: dart fix --apply
 
