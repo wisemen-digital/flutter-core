@@ -3,7 +3,8 @@
 - Removed auto router and routing
 - Changed imports to support upgrades
 - Changed url_launcher implementations
-- Removed intl
+- Removed generated code files
+- Removed models
 
 ## 1.0.14
 
