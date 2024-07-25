@@ -1,6 +1,6 @@
 name: wisecore
 description: A flutter core project used by Wisemen. Comes with a bunch of generally useful extensions and functions.
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/wisemen-digital/flutter-core
 repository: https://github.com/wisemen-digital/flutter-core
 
@@ -21,9 +21,6 @@ dependencies:
 
   # Networking
   dio: ">=5.0.0 <6.0.0"
-  
-  # Database
-  isar: ">=3.0.0 <4.0.0"
 
   # Storage
   shared_preferences: ">=2.0.0 <3.0.0"

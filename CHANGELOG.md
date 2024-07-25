@@ -1,3 +1,7 @@
+## 2.0.1
+
+- Removed Isar
+
 ## 2.0.0
 
 - Removed auto router and routing
